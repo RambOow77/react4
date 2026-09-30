@@ -1,0 +1,109 @@
+:root {
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: #262626;
+  background: #fffaf5;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; min-width: 320px; background: #fffaf5; }
+button, a { font: inherit; }
+button { cursor: pointer; }
+
+.app { min-height: 100vh; display: flex; flex-direction: column; }
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 16px clamp(20px, 5vw, 80px);
+  background: rgba(255, 255, 255, 0.96);
+  border-bottom: 1px solid #eee2d8;
+  backdrop-filter: blur(10px);
+}
+.navbar__brand { display: flex; align-items: center; gap: 10px; font-weight: 800; color: #7d1f16; }
+.navbar__icon { font-size: 1.5rem; }
+.navbar__links { display: flex; gap: 24px; }
+.navbar__links a { color: #4a403b; text-decoration: none; font-weight: 600; }
+.navbar__links a:hover { color: #b22c1e; }
+.cart-button, .hero__button, .pizza-card__footer button, .detail-button {
+  border: 0;
+  border-radius: 10px;
+  background: #b52d20;
+  color: white;
+  padding: 11px 18px;
+  font-weight: 700;
+}
+.cart-button:hover, .hero__button:hover, .pizza-card__footer button:hover, .detail-button:hover { background: #8f2017; }
+
+.hero {
+  min-height: 440px;
+  display: flex;
+  align-items: center;
+  padding: 70px clamp(20px, 8vw, 120px);
+  background: linear-gradient(120deg, #481b14 0%, #79251a 45%, #b43b25 100%);
+  color: white;
+}
+.hero__content { max-width: 760px; }
+.eyebrow { margin: 0 0 10px; text-transform: uppercase; letter-spacing: .12em; font-size: .78rem; font-weight: 800; color: #d65b49; }
+.hero .eyebrow { color: #ffd0c5; }
+.hero h1 { margin: 0; font-size: clamp(2.3rem, 5vw, 4.7rem); line-height: 1.02; max-width: 850px; }
+.hero p:not(.eyebrow) { max-width: 650px; color: #ffe8e0; font-size: 1.1rem; line-height: 1.7; margin: 22px 0 30px; }
+.hero__button { display: inline-block; background: #fff; color: #8e2419; text-decoration: none; }
+
+.pizza-section { width: min(1200px, calc(100% - 40px)); margin: 0 auto; padding: 80px 0 100px; }
+.section-heading { text-align: center; margin-bottom: 42px; }
+.section-heading h2 { margin: 0; font-size: clamp(2rem, 4vw, 3rem); color: #321e18; }
+.section-heading p:last-child { color: #756a64; }
+
+.pizza-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; }
+.pizza-card { overflow: hidden; display: flex; flex-direction: column; background: #fff; border: 1px solid #eadfd7; border-radius: 16px; box-shadow: 0 8px 30px rgba(68, 37, 20, .07); }
+.pizza-card__image-wrapper { aspect-ratio: 16 / 10; overflow: hidden; background: #eee; }
+.pizza-card__image { width: 100%; height: 100%; object-fit: cover; transition: transform .3s ease; }
+.pizza-card:hover .pizza-card__image { transform: scale(1.04); }
+.pizza-card__body { display: flex; flex-direction: column; gap: 14px; padding: 22px; flex: 1; }
+.pizza-card h3 { margin: 0; font-size: 1.5rem; color: #3b241c; }
+.pizza-card__description { margin: 0; color: #6d625c; line-height: 1.55; font-size: .94rem; }
+.ingredients { display: flex; flex-wrap: wrap; gap: 7px; }
+.ingredients span { padding: 5px 9px; border-radius: 999px; background: #fff0eb; color: #8b3025; font-size: .78rem; font-weight: 700; }
+.pizza-card__footer { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: auto; padding-top: 6px; }
+.pizza-card__footer strong { color: #9e291d; font-size: 1.25rem; }
+.pizza-card__footer button { font-size: .84rem; }
+
+.status { text-align: center; padding: 50px 0; color: #6d625c; }
+.error-box { width: min(700px, 100%); margin: 30px auto; padding: 22px; display: flex; flex-direction: column; gap: 8px; border: 1px solid #e7b8b0; border-radius: 12px; background: #fff0ed; color: #7e281e; }
+
+.detail-page { width: min(1100px, calc(100% - 40px)); margin: 0 auto; padding: 80px 0 100px; flex: 1; }
+.pizza-detail { display: grid; grid-template-columns: 1fr 1fr; overflow: hidden; background: white; border: 1px solid #eadfd7; border-radius: 20px; box-shadow: 0 12px 40px rgba(68, 37, 20, .08); }
+.pizza-detail__image-wrapper { min-height: 520px; }
+.pizza-detail__image-wrapper img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.pizza-detail__content { padding: clamp(28px, 5vw, 60px); }
+.pizza-detail__content h1 { margin: 0 0 18px; font-size: clamp(2.5rem, 5vw, 4rem); color: #321e18; }
+.pizza-detail__content h2 { margin: 28px 0 10px; color: #45281e; }
+.pizza-detail__description { color: #6d625c; line-height: 1.7; }
+.pizza-detail__content ul { padding-left: 20px; color: #51453f; line-height: 1.9; }
+.pizza-detail__price { margin: 30px 0 18px; font-size: 1.7rem; font-weight: 800; color: #9e291d; }
+
+.footer { margin-top: auto; padding: 28px 20px; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; background: #2c1813; color: #e9d9d1; font-size: .9rem; }
+.footer p { margin: 0; }
+
+@media (max-width: 900px) {
+  .pizza-grid { grid-template-columns: repeat(2, 1fr); }
+  .pizza-detail { grid-template-columns: 1fr; }
+  .pizza-detail__image-wrapper { min-height: 380px; }
+}
+
+@media (max-width: 650px) {
+  .navbar { flex-wrap: wrap; }
+  .navbar__links { order: 3; width: 100%; justify-content: center; }
+  .hero { min-height: 500px; }
+  .pizza-grid { grid-template-columns: 1fr; }
+  .pizza-card__footer { align-items: stretch; flex-direction: column; }
+  .pizza-card__footer button { width: 100%; }
+}
